@@ -1,0 +1,54 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type CommonResponse_UserResponse {
+  data: UserResponse
+  message: String
+  status: Int!
+}
+
+type CommonResponse_UserView {
+  data: UserView
+  message: String
+  status: Int!
+}
+
+type GrantedAuthority {
+  authority: String
+}
+
+"Mutation root"
+type Mutation {
+  login(password: String, userId: String): CommonResponse_UserResponse
+}
+
+"Query root"
+type Query {
+  loginUser: CommonResponse_UserView
+}
+
+type UserResponse {
+  token: String
+  userId: String
+  userNm: String
+}
+
+type UserView {
+  accountNonExpired: Boolean!
+  accountNonLocked: Boolean!
+  authorities: [GrantedAuthority]
+  credentialsNonExpired: Boolean!
+  deptCd: String
+  employerNo: String
+  enabled: Boolean!
+  password: String
+  roles: [String]
+  userId: String
+  userNm: String
+  userPwd: String
+  username: String
+}

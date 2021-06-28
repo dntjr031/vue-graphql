@@ -1,0 +1,11 @@
+mutation tasksLogin($userId: String!, $password: String!) {
+  login(userId: $userId, password: $password) {
+    status
+    data {
+      userId
+      userNm
+      token
+    }
+    message
+  }
+}

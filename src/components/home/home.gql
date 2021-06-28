@@ -1,0 +1,12 @@
+query {
+  loginUser {
+    data {
+      userId
+      userNm
+      deptCd
+      employerNo
+    }
+    message
+    status
+  }
+}

@@ -5,7 +5,7 @@
 			|
 			<button @click="logout">{{ isLogin ? 'Logout' : 'Login' }}</button>
 		</div>
-		<img alt="Vue logo" src="../assets/logo.png" />
+		<img alt="Vue logo" src="../../assets/logo.png" />
 		<div class="hello">
 			<div v-if="isLogin">
 				<h1>{{ user.userId }}</h1>
@@ -23,6 +23,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { TOKEN_KEY } from '@/apollo';
 import ApolloUtil from '@/utils/apollo.util';
 import CommonResponse from '@/common/response';
+import userGql from './home.gql';
 
 @Component
 export default class Home extends Vue {
@@ -34,27 +35,11 @@ export default class Home extends Vue {
 
 	protected mounted() {
 		if (localStorage.getItem(TOKEN_KEY)) {
-			this.apollo
-				.query<CommonResponse<User>>(
-					`
-        query {
-          loginUser {
-            data {
-              userId
-              userNm
-              deptCd
-              employerNo
-            }
-            message
-            status
-          }
-        }
-      `
-				)
-				.then(response => {
-					this.user = response.data?.loginUser.data;
-					this.isLogin = !!localStorage.getItem(TOKEN_KEY);
-				});
+			this.apollo.query<CommonResponse<User>>(userGql).then(response => {
+				console.log(response);
+				this.user = response.data?.loginUser.data;
+				this.isLogin = !!localStorage.getItem(TOKEN_KEY);
+			});
 		}
 	}
 

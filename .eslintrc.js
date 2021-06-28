@@ -134,7 +134,6 @@ module.exports = {
 
 		'vue/html-self-closing': ['off'],
 
-		// TODO: 팀 내 기준으로 재조정 필요
 		'vue/attributes-order': [
 			'error',
 			{
