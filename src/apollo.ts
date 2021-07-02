@@ -4,6 +4,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import VueApollo from 'vue-apollo';
 
 export const TOKEN_KEY = 'TOKEN_NAME';
+
 interface ApolloCache {
 	token?: string;
 }

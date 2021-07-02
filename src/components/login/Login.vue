@@ -10,5 +10,6 @@
 
 <script lang="ts">
 import Login from './login';
+
 export default Login;
 </script>
